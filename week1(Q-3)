@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<math.h>
+#define max 100
+void jump_search(int a[],int n,int key)
+{
+    int low=0,c=0;
+    int high=sqrt(n);
+    while(a[high]<key && low<high)
+    {
+        low=high;
+        high=high+sqrt(n);
+        if(high>(n-1))
+        high=n-1;
+    }
+    for(int i=low;i<=high;i++)
+    {
+        if(a[i]==key)
+        c++;
+    }
+    if(c==0)
+    printf("key not found\n");
+    else
+    printf("Key found\n");
+}
+void main()
+{
+    int a[max],n,t,key,x;
+    printf("Enter the no of testcases\n");
+    scanf("%d",&t);
+    for(int i=0;i<t;i++)
+    {
+        printf("Enter the no of elements in %d testcase\n",i+1);
+        scanf("%d",&n);
+        printf("Enter the elements of array\n");
+        for(int i=0;i<n;i++)
+        {
+            scanf("%d",&a[i]);
+        } 
+        printf("Enter key\n");
+        scanf("%d",&key);
+        jump_search(a,n,key);
+    }
+}
