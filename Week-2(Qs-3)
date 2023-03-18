@@ -1,0 +1,34 @@
+#include<stdio.h>
+#define max 100
+void func(int [],int,int);
+int main()
+{
+    int testcase;
+    int a[max];
+    int n;
+    scanf("%d",&testcase);
+    for(int i=0;i<=testcase;i++)
+    {
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    int key;
+    scanf("%d",&key);
+    func(a,n,key);
+    }
+}
+void func(int a[],int n,int key)
+{
+    int c=0,i,j;
+    for(i=0;i<n-1;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if((a[j]-a[i])==key||(a[i]-a[j]==key))
+            c++;
+        }
+    }
+    printf("%d",c);
+}
